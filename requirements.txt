@@ -1,0 +1,4 @@
+django-auth-ldap
+django-leaflet
+django-bootstrap-toolkit
+django-wysihtml5==1.2b1
