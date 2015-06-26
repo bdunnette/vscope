@@ -7,9 +7,7 @@ Template.Slide.events({});
 /* Slide: Helpers */
 /*****************************************************************************/
 Template.Slide.helpers({
-  slideUrl: function() {
-    console.log(this);
-  }
+
 });
 
 /*****************************************************************************/
@@ -30,7 +28,6 @@ Template.Slide.rendered = function() {
   query.observe({
     added: function (document) {
       slideTiles.setUrl(document.slideUrl + '/{z}/{y}/{x}.jpg');
-      console.log(slideTiles);
     }
   });
 
