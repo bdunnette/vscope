@@ -1,3 +1,14 @@
 <template name="Home">
-  <h1>Find me in app/client/templates/home/home</h1>
+  <table class="table table-striped">
+    <tbody>
+      {{#each slides}}
+      <tr>
+        <td>{{title}}</td>
+        <td>{{patient.age}}</td>
+        <td>{{patient.sex}}</td>
+<td><a href="{{pathFor route='slide'}}"><img class="img" src="{{slideUrl}}/0/0/0.jpg"></a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </template>

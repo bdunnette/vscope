@@ -1,23 +1,23 @@
 /*****************************************************************************/
-/* Slides: Event Handlers */
+/* Slide: Event Handlers */
 /*****************************************************************************/
-Template.Slides.events({
+Template.Slide.events({
 });
 
 /*****************************************************************************/
-/* Slides: Helpers */
+/* Slide: Helpers */
 /*****************************************************************************/
-Template.Slides.helpers({
+Template.Slide.helpers({
 });
 
 /*****************************************************************************/
-/* Slides: Lifecycle Hooks */
+/* Slide: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Slides.created = function () {
+Template.Slide.created = function () {
 };
 
-Template.Slides.rendered = function () {
+Template.Slide.rendered = function () {
 };
 
-Template.Slides.destroyed = function () {
+Template.Slide.destroyed = function () {
 };
