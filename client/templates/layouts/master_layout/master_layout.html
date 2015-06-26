@@ -1,4 +1,6 @@
 <template name="MasterLayout">
-  {{> Navbar}}
-  {{> yield}}
+  <div class="container-fluid">
+  <div class="row">{{> Navbar}}</div>
+  <div class="row-fluid">{{> yield}}</div>
+</div>
 </template>
