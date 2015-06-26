@@ -17,6 +17,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{pathFor route='search'}}">Search</a></li>
         {{#if isInRole 'admin'}}<li><a href="/admin"><i class="fa fa-cogs"></i> Admin</a></li>{{/if}}
         {{> loginButtons}}
       </ul>

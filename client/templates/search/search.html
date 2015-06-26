@@ -1,0 +1,26 @@
+<template name="Search">
+  {{> esInput index="slides" placeholder="Search by title" }}
+
+  <table class="table table-striped">
+    {{> SlideHeaderRow}}
+    <tbody>
+    {{#esEach index="slides"}}
+    {{> SlideRow}}
+    {{/esEach}}
+  </tbody>
+</table>
+
+  {{> esLoadMoreButton index="slides"}}
+
+  {{#ifEsInputIsEmpty index="slides"}}
+  <div>Enter a search term above to find participants (e.g. '-92' to find all 1992 autopsies)</div>
+  {{/ifEsInputIsEmpty}}
+
+  {{#ifEsHasNoResults index="slides"}}
+  <div class="no-results">No results found</div>
+  {{/ifEsHasNoResults}}
+
+  {{#ifEsIsSearching index="slides"}}
+  <div>Loading...</div>
+  {{/ifEsIsSearching}}
+</template>
