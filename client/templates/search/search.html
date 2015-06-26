@@ -1,5 +1,8 @@
 <template name="Search">
-  {{> esInput index="slides" placeholder="Search by slide title" }}
+  <div class="search-input">
+    <strong>Search:</strong>
+    {{> esInput index="slides" placeholder="Search by slide title" }}
+  </div>
 
   {{#ifEsIsSearching index="slides"}}
     <div>Loading...</div>
@@ -8,7 +11,7 @@
       {{> SlideHeaderRow}}
       <tbody>
         {{#esEach index="slides"}}
-        {{> SlideRow}}
+          {{> SlideRow}}
         {{/esEach}}
       </tbody>
     </table>
