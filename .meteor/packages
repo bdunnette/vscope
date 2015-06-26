@@ -5,7 +5,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 insecure
 iron:router
 twbs:bootstrap
@@ -14,7 +13,9 @@ aldeed:collection2
 simple:rest-accounts-password
 alanning:roles
 fortawesome:fontawesome
-yogiben:admin
-ian:accounts-ui-bootstrap-3
-bevanhunt:leaflet
+yogiben:admin@1.2.0
+ian:accounts-ui-bootstrap-3@1.2.66
 dburles:collection-helpers
+aldeed:simple-schema@1.3.3
+simple:rest
+bevanhunt:leaflet
