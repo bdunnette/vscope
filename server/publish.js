@@ -12,3 +12,7 @@ Meteor.publish('slides', function (/* args */) {
 Meteor.publish('slide', function (slideId) {
   return Slides.find({_id: slideId});
 });
+
+Meteor.publish('slideMarkers', function (slideId) {
+  return Markers.find({slide: slideId});
+});
