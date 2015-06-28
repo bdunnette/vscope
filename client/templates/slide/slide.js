@@ -36,6 +36,7 @@ Template.Slide.rendered = function() {
   var drawnItems = L.featureGroup().addTo(map);
   console.log(drawnItems);
   
+  if (Meteor.userId()){
     map.addControl(new L.Control.Draw({
       draw: {
         polyline: false,
@@ -48,6 +49,7 @@ Template.Slide.rendered = function() {
         remove: false
       }
     }));
+  }
   
   map.on('draw:created', function(event) {
       var layer = event.layer;
@@ -57,7 +59,8 @@ Template.Slide.rendered = function() {
       var feature = {
         options: event.layer.options,
         layerType: event.layerType,
-        slide: Router.current().params._id
+        slide: Router.current().params._id,
+        user: Meteor.userId()
       };
       switch (event.layerType) {
       case 'marker':
