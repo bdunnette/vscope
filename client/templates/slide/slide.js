@@ -45,7 +45,7 @@ Template.Slide.rendered = function() {
       edit: {
         featureGroup: drawnItems,
         edit: false,
-        remove: true
+        remove: false
       }
     }));
   
