@@ -90,7 +90,6 @@ Template.Slide.rendered = function() {
     });
 
     var markerQuery = Markers.find({slide: Router.current().params._id});
-    console.log(markerQuery.fetch());
     markerQuery.observe({
       added: function(document) {
         console.log(document);
