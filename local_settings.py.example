@@ -1,2 +1,0 @@
-AUTH_LDAP_BIND_DN = "cn=Laboratory Medicine and Pathology Webmaster,ou=Organizations,o=University of Minnesota,c=US"
-AUTH_LDAP_BIND_PASSWORD = "phlebotinum"
