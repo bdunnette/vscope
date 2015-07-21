@@ -17,7 +17,7 @@ Template.Slide.created = function() {};
 
 Template.Slide.rendered = function() {
   L.Icon.Default.imagePath = '/packages/bevanhunt_leaflet/images';
-  
+
   $('#map').css({
     height: $(window).innerHeight() + 'px'
   });
@@ -25,17 +25,17 @@ Template.Slide.rendered = function() {
   var map = L.map('map').setView([0,0], 3);
   var slideTiles = L.tileLayer('/images/blank.png', {id: 'slideTiles', attribution: 'Images &copy; Regents of the University of Minnesota', maxZoom: 8});
   slideTiles.addTo(map);
-  
+
   var slideQuery = Slides.find({_id: Router.current().params._id});
   slideQuery.observe({
     added: function (document) {
       slideTiles.setUrl(document.slideUrl + '/{z}/{y}/{x}.jpg');
     }
   });
-  
+
   var drawnItems = L.featureGroup().addTo(map);
   console.log(drawnItems);
-  
+
   if (Meteor.userId()){
     map.addControl(new L.Control.Draw({
       draw: {
@@ -46,11 +46,11 @@ Template.Slide.rendered = function() {
       edit: {
         featureGroup: drawnItems,
         edit: false,
-        remove: false
+        remove: true
       }
     }));
   }
-  
+
   map.on('draw:created', function(event) {
       var layer = event.layer;
       console.log(event.layer);
@@ -74,19 +74,15 @@ Template.Slide.rendered = function() {
       console.log(feature);
       Markers.insert(feature);
     });
-    
-    
-    map.on('draw:deletestart', function(event) {
-      console.log(event);
-    });
-    
-    map.on('draw:deletestop', function(event) {
-      console.log(event);
-    });
-    
+
+
     map.on('draw:deleted', function(event) {
       console.log(event);
-      console.log(event.target);
+      console.log(event.layers._layers);
+      for (var l in event.layers._layers) {
+        console.log(l);
+        Markers.remove({_id: l});
+      }
     });
 
     var markerQuery = Markers.find({slide: Router.current().params._id});
@@ -96,10 +92,14 @@ Template.Slide.rendered = function() {
         console.log(document);
         switch (document.layerType) {
         case 'marker':
-          var marker = L.marker(document.latlng).addTo(drawnItems);
+          var marker = L.marker(document.latlng);
+          marker._leaflet_id = document._id;
+          marker.addTo(drawnItems);
           break;
         case 'circle':
-          var circle = L.circle(document.latlng, document.radius).addTo(drawnItems);
+        var circle = L.circle(document.latlng, document.radius);
+        circle._leaflet_id = document._id;
+        circle.addTo(drawnItems);
           break;
         }
       },
