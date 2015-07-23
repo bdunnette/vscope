@@ -1,0 +1,21 @@
+<template name="SlideRow">
+  <tr>
+    <td>{{title}}</td>
+    <td>{{patient.age}}</td>
+    <td>{{patient.sex}}</td>
+    <td>
+      <a href="{{pathFor route='slide'}}">
+        <img class="img img-responsive" src="{{slideUrl}}/0/0/0.jpg">
+      </a>
+    </td>
+  </tr>
+</template>
+
+<template name="SlideHeaderRow">
+  <thead>
+    <th>Title</th>
+    <th>Age</th>
+    <th>Sex</th>
+    <th>Thumbnail</th>
+  </thead>
+</template>
