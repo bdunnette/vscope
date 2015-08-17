@@ -23,16 +23,19 @@ Template.Slide.rendered = function() {
   });
 
   var map = L.map('map').setView([0, 0], 3);
+
   var slideTiles = L.tileLayer('/images/blank.png', {
     id: 'slideTiles',
     attribution: 'Images &copy; Regents of the University of Minnesota',
     maxZoom: 8
   });
+
   slideTiles.addTo(map);
 
   var slideQuery = Slides.find({
     _id: Router.current().params._id
   });
+
   slideQuery.observe({
     added: function(document) {
       slideTiles.setUrl(document.slideUrl + '/{z}/{y}/{x}.jpg');
@@ -40,7 +43,7 @@ Template.Slide.rendered = function() {
   });
 
   var drawnItems = L.featureGroup().addTo(map);
-  
+
   if (Meteor.userId()) {
     map.addControl(new L.Control.Draw({
       draw: {
@@ -108,7 +111,8 @@ Template.Slide.rendered = function() {
       for (key in layers) {
         val = layers[key];
         if (val._latlng) {
-          if (val._latlng.lat === oldDocument.latlng.lat && val._latlng.lng === oldDocument.latlng.lng) {
+          if (val._latlng.lat === oldDocument.latlng.lat && val._latlng
+            .lng === oldDocument.latlng.lng) {
             map.removeLayer(val);
           }
         }
