@@ -44,6 +44,12 @@ Template.Slide.rendered = function() {
 
   var drawnItems = L.featureGroup().addTo(map);
 
+  var annotationLayer = {
+    "Annotations": drawnItems
+  };
+
+  L.control.layers(undefined, annotationLayer).addTo(map);
+
   if (Meteor.userId()) {
     map.addControl(new L.Control.Draw({
       draw: {
