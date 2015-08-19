@@ -25,7 +25,6 @@ Meteor.publish('slideMarkers', function(slideId) {
   url: "publications/slideMarkers/:0"
 });
 
-
 Meteor.publish('cases', function () {
   return Cases.find();
 });
